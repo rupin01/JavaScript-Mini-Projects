@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    color: black;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(146, 131, 131, 0.7);
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    color:black;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 1.2em;
+
+}
+
+/* Section Styles */
+.section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: rgb(146, 131, 131);
+}
+
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color:black;
+}
+
+.menu-item {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.menu-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.8em;
+    color: #fff;
+}

@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--==== Design by Code Media (codemediaweb.com) ===-->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    @import url("https://fonts.googleapis.com/css?family=Orbitron");
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+    background-color: #080710;
+  height: 100vh;
+}
+
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 140px;
+    width: 140px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: 70px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -80px;
+    bottom: 80px;
+}
+
+.alarm-clock {
+  position: relative;
+  padding: 7px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.17);
+}
+.alarm-clock .date {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+ background-color: rgba(255,255,255,0.27);
+  padding: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  z-index: 9;
+}
+.alarm-clock .time {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px 19px;
+  background-color: rgba(255,255,255,0.13);
+  border-radius: 10px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 62px;
+}
+.alarm-clock .time span {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #09ecf8;
+  text-shadow: 0 0 15px #375f08;
+  line-height: 1.75;
+  margin-bottom: 10px;
+
+}
+.alarm-clock .time span:nth-of-type(5) {
+  width: 90px;
+}
+.alarm-clock .time span.colon {
+  width: 14px;
+  padding: 15px;
+  text-align: center;
+  animation: blink 2s infinite;
+
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+  </style>
+</head>
+<body>
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+<div class="alarm-clock">
+	<div class="date">
+		<span class="month"></span>
+		<span class="day"></span>,
+		<span class="year"></span>
+	</div>
+
+	<div class="time">
+		<span class="hours"></span>
+		<span class="colon"> :</span>
+		<span class="minutes"></span>
+		<span class="colon"> : </span>
+		<span class="seconds"></span>
+	</div>
+</div>
+<script type="text/javascript">
+  //Need to determine the constant of some id functions.
+//No html function can be used directly in JavaScript
+const hours = document.querySelector('.hours');
+const minutes = document.querySelector('.minutes');
+const seconds = document.querySelector('.seconds');
+
+const month = document.querySelector('.month');
+const day = document.querySelector('.day');
+const year = document.querySelector('.year');
+
+function setDate() {
+  //The "new Date" method helps to get the current time from the device
+  const now = new Date();
+  
+  // Now the information of month, day, year has to be received from the device
+  const mm = now.getMonth();
+  const dd = now.getDate();
+  const yyyy = now.getFullYear();
+  
+  //Now the information of sec, min, hours has to be received from the device
+  const secs = now.getSeconds();
+  const mins = now.getMinutes();
+  const hrs = now.getHours();
+  
+  //I have stored the names of all the months in the constant named "monthName"
+  const monthName = [
+  'January', 'February', 'March', 'April',
+  'May', 'June', 'July', 'August', 'September',
+  'October', 'November', 'December'];
+
+ //Zero will be added when the time is below 10
+  
+  //As a result, time will always be two characters long
+  if (hrs < 10) {
+    hours.innerHTML = '0' + hrs;
+  } else {
+    hours.innerHTML = hrs;
+  }
+
+  if (secs < 10) {
+    seconds.innerHTML = '0' + secs;
+  } else {
+    seconds.innerHTML = secs;
+  }
+
+  if (mins < 10) {
+    minutes.innerHTML = '0' + mins;
+  } else {
+    minutes.innerHTML = mins;
+  }
+//"innerHTML" is used to display all the information in the webpage
+  month.innerHTML = monthName[mm];
+  day.innerHTML = dd;
+  year.innerHTML = yyyy;
+}
+
+  //All of the above calculations are stored in "setDate".
+
+//Now with the help of "setInterval" that calculation has to be updated every 1 second. This will update the time every second.
+  
+//1 second = 1000 milliseconds
+setInterval(setDate, 1000);
+</script>
+</body>
+</html>

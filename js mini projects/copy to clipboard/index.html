@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy Text From Input Field</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <style media="screen">
+    * {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+body {
+background: rgb(6, 118, 185);
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+.container {
+width: 350px;
+background: white;
+margin: 100px auto;
+padding: 15px;
+border-radius: 4px;
+}
+.container textarea {
+width: 100%;
+min-height: 150px;
+border: 2px solid rgb(11, 127, 205);
+padding: 4px;
+font-size: 16px;
+}
+.container button {
+padding: 11px 22px;
+background: rgb(17, 106, 198);
+color: white;
+border: none;
+border-radius: 3px;
+font-size: 17px;
+margin-top: 8px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <textarea type="text" id="text">hi</textarea>
+
+      <button onclick="copy('text')">Copy Text</button>
+    </div>
+
+    <!-- Script -->
+    <script type="text/javascript">
+    //Pass the id of the <input> element to be copied as a parameter to the copy()
+    let copy = (textId) => {
+      //Selects the text in the <input> elemet
+      document.getElementById(textId).select();
+      //Copies the selected text to clipboard
+      document.execCommand("copy");
+    };
+    </script>
+  </body>
+</html>
